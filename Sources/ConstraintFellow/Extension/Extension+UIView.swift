@@ -61,11 +61,11 @@ extension UIView: Constraintable {
         ConstraintFellow.addAsSubview(view: self, into: into)
         switch relation {
         case .equal:
-            self.trailingAnchor.constraint(equalTo: into.trailingAnchor, constant: with).isActive = true
+            self.trailingAnchor.constraint(equalTo: into.trailingAnchor, constant: -with).isActive = true
         case .equalOrGreater:
-            self.trailingAnchor.constraint(greaterThanOrEqualTo: into.trailingAnchor, constant: with).isActive = true
+            self.trailingAnchor.constraint(greaterThanOrEqualTo: into.trailingAnchor, constant: -with).isActive = true
         case .equalOrLess:
-            self.trailingAnchor.constraint(lessThanOrEqualTo: into.trailingAnchor, constant: with).isActive = true
+            self.trailingAnchor.constraint(lessThanOrEqualTo: into.trailingAnchor, constant: -with).isActive = true
         }
     }
     
