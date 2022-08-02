@@ -21,8 +21,7 @@ extension UIView: Constraintable {
     
     //MARK: - Left & Leading
     public func left(into: UIView, relation: Relation, to: UIView, with: CGFloat) {
-        into.addSubview(self)
-        self.translatesAutoresizingMaskIntoConstraints = false
+        ConstraintFellow.addAsSubview(view: self, into: into)
         switch relation {
         case .equal:
             self.leftAnchor.constraint(equalTo: into.leftAnchor, constant: with).isActive = true
@@ -34,8 +33,7 @@ extension UIView: Constraintable {
     }
     
     public func leading(into: UIView, relation: Relation, to: UIView, with: CGFloat) {
-        into.addSubview(self)
-        self.translatesAutoresizingMaskIntoConstraints = false
+        ConstraintFellow.addAsSubview(view: self, into: into)
         switch relation {
         case .equal:
             self.leadingAnchor.constraint(equalTo: into.leadingAnchor, constant: with).isActive = true
@@ -48,21 +46,19 @@ extension UIView: Constraintable {
     
     //MARK: - Right & Trailing
     public func right(into: UIView, relation: Relation, to: UIView, with: CGFloat) {
-        into.addSubview(self)
-        self.translatesAutoresizingMaskIntoConstraints = false
+        ConstraintFellow.addAsSubview(view: self, into: into)
         switch relation {
         case .equal:
-            self.leadingAnchor.constraint(equalTo: into.leadingAnchor, constant: with).isActive = true
+            self.rightAnchor.constraint(equalTo: into.rightAnchor, constant: -with).isActive = true
         case .equalOrGreater:
-            self.leadingAnchor.constraint(greaterThanOrEqualTo: into.leadingAnchor, constant: with).isActive = true
+            self.rightAnchor.constraint(greaterThanOrEqualTo: into.rightAnchor, constant: -with).isActive = true
         case .equalOrLess:
-            self.leadingAnchor.constraint(lessThanOrEqualTo: into.leadingAnchor, constant: with).isActive = true
+            self.rightAnchor.constraint(lessThanOrEqualTo: into.rightAnchor, constant: -with).isActive = true
         }
     }
     
     public func trailing(into: UIView, relation: Relation, to: UIView, with: CGFloat) {
-        into.addSubview(self)
-        self.translatesAutoresizingMaskIntoConstraints = false
+        ConstraintFellow.addAsSubview(view: self, into: into)
         switch relation {
         case .equal:
             self.trailingAnchor.constraint(equalTo: into.trailingAnchor, constant: with).isActive = true
@@ -75,8 +71,7 @@ extension UIView: Constraintable {
     
     //MARK: - Top & Bottom
     public func top(into: UIView, relation: Relation, to: UIView, with: CGFloat) {
-        into.addSubview(self)
-        self.translatesAutoresizingMaskIntoConstraints = false
+        ConstraintFellow.addAsSubview(view: self, into: into)
         switch relation {
         case .equal:
             self.topAnchor.constraint(equalTo: into.topAnchor, constant: with).isActive = true
@@ -88,23 +83,21 @@ extension UIView: Constraintable {
     }
     
     public func bottom(into: UIView, relation: Relation, to: UIView, with: CGFloat) {
-        into.addSubview(self)
-        self.translatesAutoresizingMaskIntoConstraints = false
+        ConstraintFellow.addAsSubview(view: self, into: into)
         switch relation {
         case .equal:
-            self.bottomAnchor.constraint(equalTo: into.bottomAnchor, constant: with).isActive = true
+            self.bottomAnchor.constraint(equalTo: into.bottomAnchor, constant: -with).isActive = true
         case .equalOrGreater:
-            self.bottomAnchor.constraint(greaterThanOrEqualTo: into.bottomAnchor, constant: with).isActive = true
+            self.bottomAnchor.constraint(greaterThanOrEqualTo: into.bottomAnchor, constant: -with).isActive = true
         case .equalOrLess:
-            self.bottomAnchor.constraint(lessThanOrEqualTo: into.bottomAnchor, constant: with).isActive = true
+            self.bottomAnchor.constraint(lessThanOrEqualTo: into.bottomAnchor, constant: -with).isActive = true
         }
     }
     
     
     //MARK: - Constraint
     public func constraint(into: UIView, anchorType: AnchorType, relation: Relation, to: UIView, with: CGFloat) {
-        into.addSubview(self)
-        self.translatesAutoresizingMaskIntoConstraints = false
+        ConstraintFellow.addAsSubview(view: self, into: into)
         switch anchorType {
         case .left:
             self.left(into: into, relation: relation, to: to, with: with)

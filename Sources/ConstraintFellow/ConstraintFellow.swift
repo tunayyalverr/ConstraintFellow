@@ -7,6 +7,16 @@
 
 import UIKit
 
+struct ConstraintFellow {
+    
+    public static func addAsSubview(view: UIView, into: UIView) {
+        guard !view.isDescendant(of: into) else { return }
+        into.addSubview(view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+}
+
 //MARK: - AnchorType
 public enum AnchorType {
     case left

@@ -35,6 +35,10 @@ class ViewController: UIViewController {
 //MARK: - Draw
 extension ViewController {
     private func draw() {
-        sampleView.fit(into: self.view, with: 0)
+//        sampleView.fit(into: self.view, with: 0)
+        sampleView.constraint(into: self.view, anchorType: .left, relation: .equal, to: self.view, with: 20)
+        sampleView.constraint(into: self.view, anchorType: .right, relation: .equal, to: self.view, with: 40)
+        sampleView.constraint(into: self.view, anchorType: .top, relation: .equal, to: self.view, with: 80)
+        sampleView.constraint(into: self.view, anchorType: .bottom, relation: .equal, to: self.view, with: 160)
     }
 }
