@@ -5,12 +5,6 @@
       location = "group:../../Tutorial/Tutorial.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:TutorialTests">
-   </FileRef>
-   <FileRef
-      location = "group:TutorialUITests">
-   </FileRef>
-   <FileRef
       location = "group:">
    </FileRef>
 </Workspace>
