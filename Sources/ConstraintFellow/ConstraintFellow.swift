@@ -44,4 +44,17 @@ public protocol Constraintable {
     func top(into: UIView, relation: Relation, to: UIView, with: CGFloat)
     func bottom(into: UIView, relation: Relation, to: UIView, with: CGFloat)
     func constraint(into: UIView, anchorType: AnchorType, relation: Relation, to: UIView, with: CGFloat)
+    
+    func get(anchorType: AnchorType) -> NSLayoutConstraint?
+    func update(anchorType: AnchorType, to: CGFloat, duration: CGFloat, parent: UIView)
+}
+
+//MARK: - ConstraintUpdatable
+public protocol ConstraintUpdatable {
+    var leftConstraint: NSLayoutConstraint? { get set }
+    var leadingConstraint: NSLayoutConstraint? { get set }
+    var rightConstraint: NSLayoutConstraint? { get set }
+    var trailingConstraint: NSLayoutConstraint? { get set }
+    var topConstraint: NSLayoutConstraint? { get set }
+    var bottomConstraint: NSLayoutConstraint? { get set }
 }
