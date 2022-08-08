@@ -25,6 +25,8 @@ public enum AnchorType {
     case trailing
     case top
     case bottom
+    case height
+    case width
 }
 
 //MARK: - Relation
@@ -57,4 +59,6 @@ public protocol ConstraintUpdatable {
     var trailingConstraint: NSLayoutConstraint? { get set }
     var topConstraint: NSLayoutConstraint? { get set }
     var bottomConstraint: NSLayoutConstraint? { get set }
+    var heightConstraint: NSLayoutConstraint? { get set }
+    var widthConstraint: NSLayoutConstraint? { get set }
 }

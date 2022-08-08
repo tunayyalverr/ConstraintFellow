@@ -198,6 +198,60 @@ extension UIView: Constraintable {
         }
     }
     
+    //MARK: - Height & Width
+    public func height(into: UIView, relation: Relation, with: CGFloat) {
+        ConstraintFellow.addAsSubview(view: self, into: into)
+        switch relation {
+        case .equal:
+            if var view = self as? ConstraintUpdatable {
+                view.heightConstraint = self.heightAnchor.constraint(equalToConstant: with)
+                view.heightConstraint?.isActive = true
+            } else {
+                self.heightAnchor.constraint(equalToConstant: with).isActive = true
+            }
+        case .equalOrGreater:
+            if var view = self as? ConstraintUpdatable {
+                view.heightConstraint = self.heightAnchor.constraint(greaterThanOrEqualTo: with)
+                view.heightConstraint?.isActive = true
+            } else {
+                self.heightAnchor.constraint(greaterThanOrEqualTo: with).isActive = true.isActive = true
+            }
+        case .equalOrLess:
+            if var view = self as? ConstraintUpdatable {
+                view.heightConstraint = self.heightAnchor.constraint(lessThanOrEqualToConstant: with)
+                view.heightConstraint?.isActive = true
+            } else {
+                self.heightAnchor.constraint(lessThanOrEqualToConstant: with).isActive = true.isActive = true
+            }
+        }
+    }
+    
+    public func width(into: UIView, relation: Relation, with: CGFloat) {
+        ConstraintFellow.addAsSubview(view: self, into: into)
+        switch relation {
+        case .equal:
+            if var view = self as? ConstraintUpdatable {
+                view.widthConstraint = self.heightAnchor.constraint(equalToConstant: with)
+                view.widthConstraint?.isActive = true
+            } else {
+                self.widthAnchor.constraint(equalToConstant: with).isActive = true
+            }
+        case .equalOrGreater:
+            if var view = self as? ConstraintUpdatable {
+                view.widthConstraint = self.heightAnchor.constraint(greaterThanOrEqualTo: with)
+                view.widthConstraint?.isActive = true
+            } else {
+                self.widthAnchor.constraint(greaterThanOrEqualTo: with).isActive = true.isActive = true
+            }
+        case .equalOrLess:
+            if var view = self as? ConstraintUpdatable {
+                view.widthConstraint = self.heightAnchor.constraint(lessThanOrEqualToConstant: with)
+                view.widthConstraint?.isActive = true
+            } else {
+                self.widthAnchor.constraint(lessThanOrEqualToConstant: with).isActive = true.isActive = true
+            }
+        }
+    }
     
     //MARK: - Constraint
     public func constraint(into: UIView, anchorType: AnchorType, relation: Relation, to: UIView, with: CGFloat) {
@@ -215,6 +269,10 @@ extension UIView: Constraintable {
             self.top(into: into, relation: relation, to: to, with: with)
         case .bottom:
             self.bottom(into: into, relation: relation, to: to, with: with)
+        case .height:
+            self.height(into: into, relation: relation, with: with)
+        case .width
+            self.width(into: into, relation: relation, with: with)
         }
     }
     
@@ -234,6 +292,10 @@ extension UIView: Constraintable {
             return view.topConstraint
         case .bottom:
             return view.bottomConstraint
+        case .height:
+            return view.heightConstraint
+        case .width:
+            return view.widthConstraint
         }
     }
     
