@@ -9,12 +9,19 @@ import UIKit
 
 struct ConstraintFellow {
     
-    public static func addAsSubview(view: UIView, into: UIView) {
+    public static var shared = ConstraintFellow()
+    private var intoView: UIView!
+    
+    public mutating func addAsSubview(view: UIView, into: UIView) {
         guard !view.isDescendant(of: into) else { return }
         into.addSubview(view)
         view.translatesAutoresizingMaskIntoConstraints = false
+        self.intoView = into
     }
     
+    public func getIntoView() -> UIView {
+        return intoView
+    }
 }
 
 //MARK: - AnchorType
@@ -38,14 +45,15 @@ public enum Relation {
 
 //MARK: - Constraintable
 public protocol Constraintable {
+    var intoView: UIView { get }
     func fit(into: UIView, with: CGFloat)
-    func left(into: UIView, relation: Relation, to: UIView, with: CGFloat)
-    func leading(into: UIView, relation: Relation, to: UIView, with: CGFloat)
-    func right(into: UIView, relation: Relation, to: UIView, with: CGFloat)
-    func trailing(into: UIView, relation: Relation, to: UIView, with: CGFloat)
-    func top(into: UIView, relation: Relation, to: UIView, with: CGFloat)
-    func bottom(into: UIView, relation: Relation, to: UIView, with: CGFloat)
-    func constraint(into: UIView, anchorType: AnchorType, relation: Relation, to: UIView, with: CGFloat)
+    func left(relation: Relation, to: UIView, with: CGFloat)
+    func leading(relation: Relation, to: UIView, with: CGFloat)
+    func right(relation: Relation, to: UIView, with: CGFloat)
+    func trailing(relation: Relation, to: UIView, with: CGFloat)
+    func top(relation: Relation, to: UIView, with: CGFloat)
+    func bottom(relation: Relation, to: UIView, with: CGFloat)
+    func constraint(anchorType: AnchorType, relation: Relation, to: UIView, with: CGFloat)
     
     func get(anchorType: AnchorType) -> NSLayoutConstraint?
     func update(anchorType: AnchorType, to: CGFloat, duration: CGFloat, parent: UIView)
