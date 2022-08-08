@@ -15,4 +15,6 @@ class BaseView: UIView, ConstraintUpdatable {
     var trailingConstraint: NSLayoutConstraint?
     var topConstraint: NSLayoutConstraint?
     var bottomConstraint: NSLayoutConstraint?
+    var heightConstraint: NSLayoutConstraint?
+    var widthConstraint: NSLayoutConstraint?
 }

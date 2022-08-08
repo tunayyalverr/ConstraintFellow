@@ -211,17 +211,17 @@ extension UIView: Constraintable {
             }
         case .equalOrGreater:
             if var view = self as? ConstraintUpdatable {
-                view.heightConstraint = self.heightAnchor.constraint(greaterThanOrEqualTo: with)
+                view.heightConstraint = self.heightAnchor.constraint(greaterThanOrEqualToConstant: with)
                 view.heightConstraint?.isActive = true
             } else {
-                self.heightAnchor.constraint(greaterThanOrEqualTo: with).isActive = true.isActive = true
+                self.heightAnchor.constraint(greaterThanOrEqualToConstant: with).isActive = true
             }
         case .equalOrLess:
             if var view = self as? ConstraintUpdatable {
                 view.heightConstraint = self.heightAnchor.constraint(lessThanOrEqualToConstant: with)
                 view.heightConstraint?.isActive = true
             } else {
-                self.heightAnchor.constraint(lessThanOrEqualToConstant: with).isActive = true.isActive = true
+                self.heightAnchor.constraint(lessThanOrEqualToConstant: with).isActive = true
             }
         }
     }
@@ -238,17 +238,17 @@ extension UIView: Constraintable {
             }
         case .equalOrGreater:
             if var view = self as? ConstraintUpdatable {
-                view.widthConstraint = self.heightAnchor.constraint(greaterThanOrEqualTo: with)
+                view.widthConstraint = self.heightAnchor.constraint(greaterThanOrEqualToConstant: with)
                 view.widthConstraint?.isActive = true
             } else {
-                self.widthAnchor.constraint(greaterThanOrEqualTo: with).isActive = true.isActive = true
+                self.widthAnchor.constraint(greaterThanOrEqualToConstant: with).isActive = true
             }
         case .equalOrLess:
             if var view = self as? ConstraintUpdatable {
                 view.widthConstraint = self.heightAnchor.constraint(lessThanOrEqualToConstant: with)
                 view.widthConstraint?.isActive = true
             } else {
-                self.widthAnchor.constraint(lessThanOrEqualToConstant: with).isActive = true.isActive = true
+                self.widthAnchor.constraint(lessThanOrEqualToConstant: with).isActive = true
             }
         }
     }
@@ -271,7 +271,7 @@ extension UIView: Constraintable {
             self.bottom(into: into, relation: relation, to: to, with: with)
         case .height:
             self.height(into: into, relation: relation, with: with)
-        case .width
+        case .width:
             self.width(into: into, relation: relation, with: with)
         }
     }
@@ -302,7 +302,7 @@ extension UIView: Constraintable {
     public func update(anchorType: AnchorType, to: CGFloat, duration: CGFloat, parent: UIView) {
         UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.2, options: .curveEaseIn) {
             switch anchorType {
-            case .left, .leading, .top:
+            case .left, .leading, .top, .height, .width:
                 self.get(anchorType: anchorType)?.constant = to
             case .right, .trailing, .bottom:
                 self.get(anchorType: anchorType)?.constant = -to
