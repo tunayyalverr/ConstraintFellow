@@ -43,24 +43,24 @@ extension UIView: Constraintable {
         switch relation {
         case .equal:
             if var view = self as? ConstraintUpdatable {
-                view.leftConstraint = self.leftAnchor.constraint(equalTo: intoView.leftAnchor, constant: with)
+                view.leftConstraint = self.leftAnchor.constraint(equalTo: to.leftAnchor, constant: with)
                 view.leftConstraint?.isActive = true
             } else {
-                self.leftAnchor.constraint(equalTo: intoView.leftAnchor, constant: with).isActive = true
+                self.leftAnchor.constraint(equalTo: to.leftAnchor, constant: with).isActive = true
             }
         case .equalOrGreater:
             if var view = self as? ConstraintUpdatable {
-                view.leftConstraint = self.leftAnchor.constraint(greaterThanOrEqualTo: intoView.leftAnchor, constant: with)
+                view.leftConstraint = self.leftAnchor.constraint(greaterThanOrEqualTo: to.leftAnchor, constant: with)
                 view.leftConstraint?.isActive = true
             } else {
-                self.leftAnchor.constraint(greaterThanOrEqualTo: intoView.leftAnchor, constant: with).isActive = true
+                self.leftAnchor.constraint(greaterThanOrEqualTo: to.leftAnchor, constant: with).isActive = true
             }
         case .equalOrLess:
             if var view = self as? ConstraintUpdatable {
-                view.leftConstraint = self.leftAnchor.constraint(lessThanOrEqualTo: intoView.leftAnchor, constant: with)
+                view.leftConstraint = self.leftAnchor.constraint(lessThanOrEqualTo: to.leftAnchor, constant: with)
                 view.leftConstraint?.isActive = true
             } else {
-                self.leftAnchor.constraint(lessThanOrEqualTo: intoView.leftAnchor, constant: with).isActive = true
+                self.leftAnchor.constraint(lessThanOrEqualTo: to.leftAnchor, constant: with).isActive = true
             }
         }
     }
@@ -69,24 +69,24 @@ extension UIView: Constraintable {
         switch relation {
         case .equal:
             if var view = self as? ConstraintUpdatable {
-                view.leadingConstraint = self.leadingAnchor.constraint(equalTo: intoView.leadingAnchor, constant: with)
+                view.leadingConstraint = self.leadingAnchor.constraint(equalTo: to.leadingAnchor, constant: with)
                 view.leadingConstraint?.isActive = true
             } else {
-                self.leadingAnchor.constraint(equalTo: intoView.leadingAnchor, constant: with).isActive = true
+                self.leadingAnchor.constraint(equalTo: to.leadingAnchor, constant: with).isActive = true
             }
         case .equalOrGreater:
             if var view = self as? ConstraintUpdatable {
-                view.leadingConstraint = self.leadingAnchor.constraint(greaterThanOrEqualTo: intoView.leadingAnchor, constant: with)
+                view.leadingConstraint = self.leadingAnchor.constraint(greaterThanOrEqualTo: to.leadingAnchor, constant: with)
                 view.leadingConstraint?.isActive = true
             } else {
-                self.leadingAnchor.constraint(greaterThanOrEqualTo: intoView.leadingAnchor, constant: with).isActive = true
+                self.leadingAnchor.constraint(greaterThanOrEqualTo: to.leadingAnchor, constant: with).isActive = true
             }
         case .equalOrLess:
             if var view = self as? ConstraintUpdatable {
-                view.leadingConstraint = self.leadingAnchor.constraint(lessThanOrEqualTo: intoView.leadingAnchor, constant: with)
+                view.leadingConstraint = self.leadingAnchor.constraint(lessThanOrEqualTo: to.leadingAnchor, constant: with)
                 view.leadingConstraint?.isActive = true
             } else {
-                self.leadingAnchor.constraint(lessThanOrEqualTo: intoView.leadingAnchor, constant: with).isActive = true
+                self.leadingAnchor.constraint(lessThanOrEqualTo: to.leadingAnchor, constant: with).isActive = true
             }
         }
     }
@@ -96,24 +96,24 @@ extension UIView: Constraintable {
         switch relation {
         case .equal:
             if var view = self as? ConstraintUpdatable {
-                view.rightConstraint = self.rightAnchor.constraint(equalTo: intoView.rightAnchor, constant: -with)
+                view.rightConstraint = self.rightAnchor.constraint(equalTo: to.rightAnchor, constant: -with)
                 view.rightConstraint?.isActive = true
             } else {
-                self.rightAnchor.constraint(equalTo: intoView.rightAnchor, constant: -with).isActive = true
+                self.rightAnchor.constraint(equalTo: to.rightAnchor, constant: -with).isActive = true
             }
         case .equalOrGreater:
             if var view = self as? ConstraintUpdatable {
-                view.rightConstraint = self.rightAnchor.constraint(greaterThanOrEqualTo: intoView.rightAnchor, constant: -with)
+                view.rightConstraint = self.rightAnchor.constraint(greaterThanOrEqualTo: to.rightAnchor, constant: -with)
                 view.rightConstraint?.isActive = true
             } else {
-                self.rightAnchor.constraint(greaterThanOrEqualTo: intoView.rightAnchor, constant: -with).isActive = true
+                self.rightAnchor.constraint(greaterThanOrEqualTo: to.rightAnchor, constant: -with).isActive = true
             }
         case .equalOrLess:
             if var view = self as? ConstraintUpdatable {
-                view.rightConstraint = self.rightAnchor.constraint(lessThanOrEqualTo: intoView.rightAnchor, constant: -with)
+                view.rightConstraint = self.rightAnchor.constraint(lessThanOrEqualTo: to.rightAnchor, constant: -with)
                 view.rightConstraint?.isActive = true
             } else {
-                self.rightAnchor.constraint(lessThanOrEqualTo: intoView.rightAnchor, constant: -with).isActive = true
+                self.rightAnchor.constraint(lessThanOrEqualTo: to.rightAnchor, constant: -with).isActive = true
             }
         }
     }
@@ -122,77 +122,129 @@ extension UIView: Constraintable {
         switch relation {
         case .equal:
             if var view = self as? ConstraintUpdatable {
-                view.trailingConstraint = self.trailingAnchor.constraint(equalTo: intoView.trailingAnchor, constant: -with)
+                view.trailingConstraint = self.trailingAnchor.constraint(equalTo: to.trailingAnchor, constant: -with)
                 view.trailingConstraint?.isActive = true
             } else {
-                self.trailingAnchor.constraint(equalTo: intoView.trailingAnchor, constant: -with).isActive = true
+                self.trailingAnchor.constraint(equalTo: to.trailingAnchor, constant: -with).isActive = true
             }
         case .equalOrGreater:
             if var view = self as? ConstraintUpdatable {
-                view.trailingConstraint = self.trailingAnchor.constraint(greaterThanOrEqualTo: intoView.trailingAnchor, constant: -with)
+                view.trailingConstraint = self.trailingAnchor.constraint(greaterThanOrEqualTo: to.trailingAnchor, constant: -with)
                 view.trailingConstraint?.isActive = true
             } else {
-                self.trailingAnchor.constraint(greaterThanOrEqualTo: intoView.trailingAnchor, constant: -with).isActive = true
+                self.trailingAnchor.constraint(greaterThanOrEqualTo: to.trailingAnchor, constant: -with).isActive = true
             }
         case .equalOrLess:
             if var view = self as? ConstraintUpdatable {
-                view.trailingConstraint = self.trailingAnchor.constraint(lessThanOrEqualTo: intoView.trailingAnchor, constant: -with)
+                view.trailingConstraint = self.trailingAnchor.constraint(lessThanOrEqualTo: to.trailingAnchor, constant: -with)
                 view.trailingConstraint?.isActive = true
             } else {
-                self.trailingAnchor.constraint(lessThanOrEqualTo: intoView.trailingAnchor, constant: -with).isActive = true
+                self.trailingAnchor.constraint(lessThanOrEqualTo: to.trailingAnchor, constant: -with).isActive = true
             }
         }
     }
     
     //MARK: - Top & Bottom
-    public func top(relation: Relation, to: UIView, with: CGFloat) {
+    public func top(relation: Relation, toTop: UIView, with: CGFloat) {
         switch relation {
         case .equal:
             if var view = self as? ConstraintUpdatable {
-                view.topConstraint = self.topAnchor.constraint(equalTo: intoView.topAnchor, constant: with)
+                view.topConstraint = self.topAnchor.constraint(equalTo: toTop.topAnchor, constant: with)
                 view.topConstraint?.isActive = true
             } else {
-                self.topAnchor.constraint(equalTo: intoView.topAnchor, constant: with).isActive = true
+                self.topAnchor.constraint(equalTo: toTop.topAnchor, constant: with).isActive = true
             }
         case .equalOrGreater:
             if var view = self as? ConstraintUpdatable {
-                view.topConstraint = self.topAnchor.constraint(greaterThanOrEqualTo: intoView.topAnchor, constant: with)
+                view.topConstraint = self.topAnchor.constraint(greaterThanOrEqualTo: toTop.topAnchor, constant: with)
                 view.topConstraint?.isActive = true
             } else {
-                self.topAnchor.constraint(greaterThanOrEqualTo: intoView.topAnchor, constant: with).isActive = true
+                self.topAnchor.constraint(greaterThanOrEqualTo: toTop.topAnchor, constant: with).isActive = true
             }
         case .equalOrLess:
             if var view = self as? ConstraintUpdatable {
-                view.topConstraint = self.topAnchor.constraint(lessThanOrEqualTo: intoView.topAnchor, constant: with)
+                view.topConstraint = self.topAnchor.constraint(lessThanOrEqualTo: toTop.topAnchor, constant: with)
                 view.topConstraint?.isActive = true
             } else {
-                self.topAnchor.constraint(lessThanOrEqualTo: intoView.topAnchor, constant: with).isActive = true
+                self.topAnchor.constraint(lessThanOrEqualTo: toTop.topAnchor, constant: with).isActive = true
             }
         }
     }
     
-    public func bottom(relation: Relation, to: UIView, with: CGFloat) {
+    public func top(relation: Relation, toBottom: UIView, with: CGFloat) {
         switch relation {
         case .equal:
             if var view = self as? ConstraintUpdatable {
-                view.bottomConstraint = self.bottomAnchor.constraint(equalTo: intoView.bottomAnchor, constant: -with)
-                view.bottomConstraint?.isActive = true
+                view.topConstraint = self.topAnchor.constraint(equalTo: toBottom.bottomAnchor, constant: with)
+                view.topConstraint?.isActive = true
             } else {
-                self.bottomAnchor.constraint(equalTo: intoView.bottomAnchor, constant: -with).isActive = true
+                self.topAnchor.constraint(equalTo: toBottom.bottomAnchor, constant: with).isActive = true
             }
         case .equalOrGreater:
             if var view = self as? ConstraintUpdatable {
-                view.bottomConstraint = self.bottomAnchor.constraint(greaterThanOrEqualTo: intoView.bottomAnchor, constant: -with)
-                view.bottomConstraint?.isActive = true
+                view.topConstraint = self.topAnchor.constraint(greaterThanOrEqualTo: toBottom.bottomAnchor, constant: with)
+                view.topConstraint?.isActive = true
             } else {
-                self.bottomAnchor.constraint(greaterThanOrEqualTo: intoView.bottomAnchor, constant: -with).isActive = true
+                self.topAnchor.constraint(greaterThanOrEqualTo: toBottom.bottomAnchor, constant: with).isActive = true
             }
         case .equalOrLess:
             if var view = self as? ConstraintUpdatable {
-                view.bottomConstraint = self.bottomAnchor.constraint(lessThanOrEqualTo: intoView.bottomAnchor, constant: -with)
+                view.topConstraint = self.topAnchor.constraint(lessThanOrEqualTo: toBottom.bottomAnchor, constant: with)
+                view.topConstraint?.isActive = true
+            } else {
+                self.topAnchor.constraint(lessThanOrEqualTo: toBottom.bottomAnchor, constant: with).isActive = true
+            }
+        }
+    }
+    
+    public func bottom(relation: Relation, toBottom: UIView, with: CGFloat) {
+        switch relation {
+        case .equal:
+            if var view = self as? ConstraintUpdatable {
+                view.bottomConstraint = self.bottomAnchor.constraint(equalTo: toBottom.bottomAnchor, constant: -with)
                 view.bottomConstraint?.isActive = true
             } else {
-                self.bottomAnchor.constraint(lessThanOrEqualTo: intoView.bottomAnchor, constant: -with).isActive = true
+                self.bottomAnchor.constraint(equalTo: toBottom.bottomAnchor, constant: -with).isActive = true
+            }
+        case .equalOrGreater:
+            if var view = self as? ConstraintUpdatable {
+                view.bottomConstraint = self.bottomAnchor.constraint(greaterThanOrEqualTo: toBottom.bottomAnchor, constant: -with)
+                view.bottomConstraint?.isActive = true
+            } else {
+                self.bottomAnchor.constraint(greaterThanOrEqualTo: toBottom.bottomAnchor, constant: -with).isActive = true
+            }
+        case .equalOrLess:
+            if var view = self as? ConstraintUpdatable {
+                view.bottomConstraint = self.bottomAnchor.constraint(lessThanOrEqualTo: toBottom.bottomAnchor, constant: -with)
+                view.bottomConstraint?.isActive = true
+            } else {
+                self.bottomAnchor.constraint(lessThanOrEqualTo: toBottom.bottomAnchor, constant: -with).isActive = true
+            }
+        }
+    }
+    
+    public func bottom(relation: Relation, toTop: UIView, with: CGFloat) {
+        switch relation {
+        case .equal:
+            if var view = self as? ConstraintUpdatable {
+                view.bottomConstraint = self.bottomAnchor.constraint(equalTo: toTop.topAnchor, constant: -with)
+                view.bottomConstraint?.isActive = true
+            } else {
+                self.bottomAnchor.constraint(equalTo: toTop.topAnchor, constant: -with).isActive = true
+            }
+        case .equalOrGreater:
+            if var view = self as? ConstraintUpdatable {
+                view.bottomConstraint = self.bottomAnchor.constraint(greaterThanOrEqualTo: toTop.topAnchor, constant: -with)
+                view.bottomConstraint?.isActive = true
+            } else {
+                self.bottomAnchor.constraint(greaterThanOrEqualTo: toTop.topAnchor, constant: -with).isActive = true
+            }
+        case .equalOrLess:
+            if var view = self as? ConstraintUpdatable {
+                view.bottomConstraint = self.bottomAnchor.constraint(lessThanOrEqualTo: toTop.topAnchor, constant: -with)
+                view.bottomConstraint?.isActive = true
+            } else {
+                self.bottomAnchor.constraint(lessThanOrEqualTo: toTop.topAnchor, constant: -with).isActive = true
             }
         }
     }
@@ -262,9 +314,9 @@ extension UIView: Constraintable {
         case .trailing:
             self.trailing(relation: relation, to: to, with: with)
         case .top:
-            self.top(relation: relation, to: to, with: with)
+            self.top(relation: relation, toTop: to, with: with)
         case .bottom:
-            self.bottom(relation: relation, to: to, with: with)
+            self.bottom(relation: relation, toBottom: to, with: with)
         case .height:
             self.height(relation: relation, with: with)
         case .width:

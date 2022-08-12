@@ -47,12 +47,18 @@ public enum Relation {
 public protocol Constraintable {
     var intoView: UIView { get }
     func fit(into: UIView, with: CGFloat)
+    
     func left(relation: Relation, to: UIView, with: CGFloat)
     func leading(relation: Relation, to: UIView, with: CGFloat)
+    
     func right(relation: Relation, to: UIView, with: CGFloat)
     func trailing(relation: Relation, to: UIView, with: CGFloat)
-    func top(relation: Relation, to: UIView, with: CGFloat)
-    func bottom(relation: Relation, to: UIView, with: CGFloat)
+    
+    func top(relation: Relation, toTop: UIView, with: CGFloat)
+    func top(relation: Relation, toBottom: UIView, with: CGFloat)
+    func bottom(relation: Relation, toTop: UIView, with: CGFloat)
+    func bottom(relation: Relation, toBottom: UIView, with: CGFloat)
+    
     func constraint(anchorType: AnchorType, relation: Relation, to: UIView, with: CGFloat)
     
     func get(anchorType: AnchorType) -> NSLayoutConstraint?
